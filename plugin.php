@@ -37,6 +37,11 @@ function googleanalyticserr_form()
   echo '</ol>';
 }
 
+// Show the code on the page.
+function googleanalyticserr_append_code() {
+  echo '<p>Google Analytics stuff goes here.</p>';
+}
+
 
 // Filters
 
