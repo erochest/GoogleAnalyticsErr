@@ -39,9 +39,11 @@ function googleanalyticserr_form()
 
 // Show the code on the page.
 function googleanalyticserr_append_code() {
-  echo '<p>Google Analytics stuff goes here.</p>';
+  $code = get_option('googleanalyticserr_code');
+  if ($code) {
+    echo $code;
+  }
 }
-
 
 // Filters
 
