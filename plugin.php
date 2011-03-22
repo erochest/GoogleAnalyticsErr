@@ -27,8 +27,8 @@ function googleanalyticserr_config_form()
                       'cols' => '80'),
                 get_option('googleanalyticserr_code'));
   echo '</div>';
-  echo '<div>To find your Google Analytics code, follow these steps:</div>';
-  echo '<ol style="list-style-type: decimal; font-size: 100%;">';
+  echo '<p>To find your Google Analytics code, follow these steps:</p>';
+  echo '<ol style="list-style: decimal inside;">';
   echo '<li>log onto your <a href="https://www.google.com/analytics/">Google Analytics</a> account;</li>';
   echo '<li>click "Edit" for the profile you want to use;</li>';
   echo '<li>click "Check Status";</li>';
