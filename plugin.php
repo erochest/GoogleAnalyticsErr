@@ -16,7 +16,7 @@ function googleanalyticserr_config() {
 }
 
 // Show plugin configuration page.
-function googleanalyticserr_form()
+function googleanalyticserr_config_form()
 {
   // Create a form with inputs to collect the Analytics code.
   echo '<div id="googleanalyticserr_form">';
