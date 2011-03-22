@@ -24,12 +24,12 @@ function googleanalyticserr_config_form()
              'Your Google Analytics code:');
   echo textarea(array('name' => 'googleanalyticserr_code',
                       'rows' => '15',
-                      'cols' => '50'),
+                      'cols' => '80'),
                 get_option('googleanalyticserr_code'));
   echo '</div>';
   echo '<div>To find your Google Analytics code, follow these steps:</div>';
-  echo '<ol>';
-  echo '<li>log onto your <a href="https://www.google.com/analystics/">Google Analytics</a> account;</li>';
+  echo '<ol style="list-style-type: decimal; font-size: 100%;">';
+  echo '<li>log onto your <a href="https://www.google.com/analytics/">Google Analytics</a> account;</li>';
   echo '<li>click "Edit" for the profile you want to use;</li>';
   echo '<li>click "Check Status";</li>';
   echo '<li>Follow the instructions, and copy and paste the text labelled "Paste this code on your site"; and</li>';
