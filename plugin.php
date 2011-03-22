@@ -1,24 +1,37 @@
 <?php
 
-// Hooks
+/**
+ * GoogleAnalyticsErr Omeka plugin.
+ *
+ * This plug-in allows you to paste in the JavaScript for Google Analytics and 
+ * outputs it on the bottom of every public page.
+ *
+ * @package GoogleAnalyticsErr
+ */
+
+/**
+ * Add hooks for various events.
+ */
 add_plugin_hook('public_theme_footer', 'googleanalyticserr_append_code');
 add_plugin_hook('config', 'googleanalyticserr_config');
 add_plugin_hook('config_form', 'googleanalyticserr_config_form');
 
-// Save the plugin configuration page.
+/**
+ * Save data from the the plugin configuration form.
+ */
 function googleanalyticserr_config()
 {
-  // Save the message as a plugin option.
   set_option(
       'googleanalyticserr_code',
       trim($_POST['googleanalyticserr_code'])
   );
 }
 
-// Show plugin configuration page.
+/**
+ * Show the plugin configuration form.
+ */
 function googleanalyticserr_config_form()
 {
-  // Create a form with inputs to collect the Analytics code.
   echo '<div id="googleanalyticserr_form">';
   echo label(
       array('for' => 'googleanalyticserr_code'),
@@ -30,6 +43,8 @@ function googleanalyticserr_config_form()
       get_option('googleanalyticserr_code')
   );
   echo '</div>';
+
+  // Now for some instructions. We're user friendly!
   echo '<p>To find your Google Analytics code, follow these steps:</p>';
   echo '<ol style="list-style: decimal inside;">';
   echo '<li>log onto your <a href="https://www.google.com/analytics/">';
@@ -42,7 +57,9 @@ function googleanalyticserr_config_form()
   echo '</ol>';
 }
 
-// Show the code on the page.
+/**
+ * Show the code on the page, if it's set.
+ */
 function googleanalyticserr_append_code()
 {
   $code = get_option('googleanalyticserr_code');
