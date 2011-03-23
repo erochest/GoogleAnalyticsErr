@@ -1,5 +1,4 @@
 <?php
-
 /**
  * GoogleAnalyticsErr Omeka plugin.
  *
@@ -9,12 +8,48 @@
  * @package GoogleAnalyticsErr
  */
 
+// {{{ Constants
+define(
+    'GOOGLE_ANALYTICS_ERR_PLUGIN_VERSION',
+    get_plugin_ini('GoogleAnalyticsErr', 'version')
+);
+define(
+    'GOOGLE_ANALYTICS_ERR_PLUGIN_DIR',
+    dirname(__FILE__)
+);
+// }}}
+
 /**
  * Add hooks for various events.
  */
-add_plugin_hook('public_theme_footer', 'googleanalyticserr_append_code');
+// {{{ Hooks
+add_plugin_hook('install', 'googleanalysticserr_install');
+add_plugin_hook('uninstall', 'googleanalysticserr_uninstall');
+add_plugin_hook('public_theme_footer',
+                'googleanalyticserr_append_code');
 add_plugin_hook('config', 'googleanalyticserr_config');
 add_plugin_hook('config_form', 'googleanalyticserr_config_form');
+// }}}
+
+/**
+ * Install the plugin by setting the options.
+ */
+function googleanalysticserr_install()
+{
+  set_option(
+      'googleanalyticserr_version',
+      GOOGLE_ANALYTICS_ERR_PLUGIN_VERSION
+    );
+}
+
+/**
+ * Uninstall the plugin by deleting the options.
+ */
+function googleanalysticserr_uninstall()
+{
+  delete_option('googleanalyticserr_version');
+  delete_option('googleanalyticserr_code');
+}
 
 /**
  * Save data from the the plugin configuration form.
@@ -63,7 +98,7 @@ function googleanalyticserr_config_form()
 function googleanalyticserr_append_code()
 {
   $code = get_option('googleanalyticserr_code');
-  if ($code) {
+  if (isset($code) && $code !== '') {
     echo $code;
   }
 }
