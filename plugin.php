@@ -89,7 +89,8 @@ function googleanalyticserr_config_form()
   // Now for some instructions. We're user friendly!
   echo '<p>To find your Google Analytics code, follow these steps:</p>';
   echo '<ol style="list-style: decimal inside;">';
-  echo '<li>log onto your <a href="https://www.google.com/analytics/">';
+  echo '<li>log onto your ';
+  echo '<a href="https://www.google.com/analytics/" target="_blank">';
   echo 'Google Analytics</a> account;</li>';
   echo '<li>click "Edit" for the profile you want to use;</li>';
   echo '<li>click "Check Status";</li>';
