@@ -5,7 +5,14 @@
  * This plug-in allows you to paste in the JavaScript for Google Analytics and 
  * outputs it on the bottom of every public page.
  *
- * @package GoogleAnalyticsErr
+ * @package omeka
+ * @subpackage GoogleAnalyticsErr
+ * @author Eric Rochester (erochest@gmail.com)
+ * @copyright 2011
+ * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
+ * @version 0.1
+ * @link http://www.ericrochester.com/
+ *
  */
 
 // {{{ Constants
