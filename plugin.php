@@ -86,7 +86,7 @@ function googleanalyticserr_config_form()
   echo 'Google Analytics</a> account;</li>';
   echo '<li>click "Edit" for the profile you want to use;</li>';
   echo '<li>click "Check Status";</li>';
-  echo '<li>Follow the instructions, and copy and paste the text labelled '
+  echo '<li>Follow the instructions, and copy and paste the text labelled ';
   echo '"Paste this code on your site"; and</li>';
   echo '<li>Paste the code into the box above.</li>';
   echo '</ol>';
