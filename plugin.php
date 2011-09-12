@@ -83,14 +83,11 @@ function googleanalyticserr_config()
 function googleanalyticserr_config_form()
 {
   echo '<div id="googleanalyticserr_form">';
-  echo label(
-      array('for' => 'googleanalyticserr_code'),
-      'Your Google Analytics code:'
-  );
-  echo textarea(
-      array('name' => 'googleanalyticserr_code',
-          'rows' => '15', 'cols' => '80'),
-      get_option('googleanalyticserr_code')
+  echo __v()->formLabel('googleanalyticserr_code', 'Your Google Analytics code:');
+  echo __v()->formTextarea(
+        'googleanalyticserr_code', 
+        get_option('googleanalyticserr_code'),
+        array('rows' => '15', 'cols' => '80')
   );
   echo '</div>';
 
