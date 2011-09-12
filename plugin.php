@@ -32,6 +32,10 @@ define(
     'GOOGLE_ANALYTICS_ERR_PLUGIN_DIR',
     dirname(__FILE__)
 );
+define(
+    'GOOGLE_ANALYTICS_ACCOUNT_OPTION',
+    'googleanalytics_account_id'
+);
 // }}}
 
 /**
@@ -63,7 +67,8 @@ function googleanalysticserr_install()
 function googleanalysticserr_uninstall()
 {
   delete_option('googleanalyticserr_version');
-  delete_option('googleanalyticserr_code');
+  delete_option(GOOGLE_ANALYTICS_ACCOUNT_OPTION);
+  
 }
 
 /**
@@ -71,10 +76,10 @@ function googleanalysticserr_uninstall()
  */
 function googleanalyticserr_config()
 {
-  set_option(
-      'googleanalyticserr_code',
-      trim($_POST['googleanalyticserr_code'])
-  );
+   set_option(
+      GOOGLE_ANALYTICS_ACCOUNT_OPTION,
+      trim($_POST[GOOGLE_ANALYTICS_ACCOUNT_OPTION])
+   );
 }
 
 /**
@@ -82,27 +87,28 @@ function googleanalyticserr_config()
  */
 function googleanalyticserr_config_form()
 {
-  echo '<div id="googleanalyticserr_form">';
-  echo __v()->formLabel('googleanalyticserr_code', 'Your Google Analytics code:');
-  echo __v()->formTextarea(
-        'googleanalyticserr_code', 
-        get_option('googleanalyticserr_code'),
-        array('rows' => '15', 'cols' => '80')
-  );
-  echo '</div>';
-
-  // Now for some instructions. We're user friendly!
-  echo '<p>To find your Google Analytics code, follow these steps:</p>';
-  echo '<ol style="list-style: decimal inside;">';
-  echo '<li>log onto your ';
-  echo '<a href="https://www.google.com/analytics/" target="_blank">';
-  echo 'Google Analytics</a> account;</li>';
-  echo '<li>click "Edit" for the profile you want to use;</li>';
-  echo '<li>click "Check Status";</li>';
-  echo '<li>Follow the instructions, and copy and paste the text labelled ';
-  echo '"Paste this code on your site"; and</li>';
-  echo '<li>Paste the code into the box above.</li>';
-  echo '</ol>';
+    echo '<div id="googleanalyticserr_form">';
+    echo __v()->formLabel(
+        GOOGLE_ANALYTICS_ACCOUNT_OPTION,
+        'Google Analytics Account ID:'
+    );
+    echo __v()->formText(
+        GOOGLE_ANALYTICS_ACCOUNT_OPTION,
+        get_option(GOOGLE_ANALYTICS_ACCOUNT_OPTION),
+         array('rows' => '15', 'cols' => '80')
+    );
+    echo '</div>';
+ 
+    // Now for some instructions. We're user friendly!
+    echo '<p>To find your Google Analytics Account ID, follow these steps:</p>';
+    echo '<ol style="list-style: decimal inside;">';
+    echo '<li>Log onto your ';
+    echo '<a href="https://www.google.com/analytics/" target="_blank">';
+    echo 'Google Analytics</a> account;</li>';
+    echo '<li>Click "Edit" for the profile you want to use;</li>';
+    echo '<li>Copy the value for Account ID (starts with &quot;UA-&quot;);</li>';
+    echo '<li>Paste it into the text field above.</li>';
+    echo '</ol>';
 }
 
 /**
@@ -110,10 +116,10 @@ function googleanalyticserr_config_form()
  */
 function googleanalyticserr_append_code()
 {
-  $code = get_option('googleanalyticserr_code');
-  if (isset($code) && $code !== '') {
-    echo $code;
-  }
+    $code = get_option(GOOGLE_ANALYTICS_ACCOUNT_OPTION);    
+    if (isset($code) && $code !== '') {
+        echo $code;
+    }
 }
 
 ?>
