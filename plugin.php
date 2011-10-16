@@ -102,12 +102,12 @@ function googleanalyticserr_config_form()
     // Now for some instructions. We're user friendly!
     echo '<p>To find your Google Analytics Account ID, follow these steps:</p>';
     echo '<ol style="list-style: decimal inside;">';
-    echo '<li>Log onto your ';
+    echo '<li>Create or log into a';
     echo '<a href="https://www.google.com/analytics/" target="_blank">';
     echo 'Google Analytics</a> account;</li>';
-    echo '<li>Click "Edit" for the profile you want to use;</li>';
-    echo '<li>Copy the value for Account ID (starts with &quot;UA-&quot;);</li>';
-    echo '<li>Paste it into the text field above.</li>';
+    echo '<li> Add a &quot;Website Profile&quot; for this Omeka.net website; </li>';
+    echo '<li>Copy the value for Account ID found next to the site URL (starts with &quot;UA-&quot;);</li>';
+    echo '<li>Paste it into the text field above and Save Changes.</li>';
     echo '</ol>';
 }
 
