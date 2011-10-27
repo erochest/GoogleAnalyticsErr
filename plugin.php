@@ -23,7 +23,13 @@
  *
  */
 
+// TODO: No tests!
+
+// TODO: @link should be to GH.
+
 // {{{ Constants
+// TODO: Wrap defines in if (check if already defined), or it breaks Jenkins.
+// TODO: Don't set either (unless using *_PLUGIN_DIR somewhere).
 define(
     'GOOGLE_ANALYTICS_ERR_PLUGIN_VERSION',
     get_plugin_ini('GoogleAnalyticsErr', 'version')
@@ -49,6 +55,8 @@ add_plugin_hook('public_theme_footer',
 add_plugin_hook('config', 'googleanalyticserr_config');
 add_plugin_hook('config_form', 'googleanalyticserr_config_form');
 // }}}
+
+// TODO: Wrap all hooks in a static class.
 
 /**
  * Install the plugin by setting the options.
@@ -98,6 +106,8 @@ function googleanalyticserr_config_form()
          array('rows' => '15', 'cols' => '80')
     );
     echo '</div>';
+
+    // TODO: Use HEREDOC or partial form for this.
  
     // Now for some instructions. We're user friendly!
     echo '<p>To find your Google Analytics Account ID, follow these steps:</p>';
@@ -127,5 +137,6 @@ function googleanalyticserr_append_code()
     echo '</script>' . "\n";
 }
 
+// TODO: Remove closer (XSS).
 ?>
 
