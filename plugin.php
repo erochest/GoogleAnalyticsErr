@@ -31,10 +31,6 @@
 // TODO: Wrap defines in if (check if already defined), or it breaks Jenkins.
 // TODO: Don't set either (unless using *_PLUGIN_DIR somewhere).
 define(
-    'GOOGLE_ANALYTICS_ERR_PLUGIN_VERSION',
-    get_plugin_ini('GoogleAnalyticsErr', 'version')
-);
-define(
     'GOOGLE_ANALYTICS_ERR_PLUGIN_DIR',
     dirname(__FILE__)
 );
