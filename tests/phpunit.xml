@@ -1,0 +1,7 @@
+<phpunit bootstrap="../../../application/tests/bootstrap.php"
+         convertErrorsToExceptions="true"
+         convertWarningsToExceptions="true">
+  <testsuite name='GoogleAnalytics Tests'>
+    <file>AllTests.php</file>
+  </testsuite>
+</phpunit>
