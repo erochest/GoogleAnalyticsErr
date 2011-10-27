@@ -1,6 +1,7 @@
 <?php
 
 require_once '../GoogleAnalyticsPlugin.php';
+require_once '../plugin.php';
 
 /**
  * Since this plugin is really a bunch of hooks with little functionality, this does all the testing.

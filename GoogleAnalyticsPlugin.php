@@ -77,6 +77,10 @@ class GoogleAnalyticsPlugin
      **/
     public function install()
     {
+        set_option(
+            'googleanalyticserr_version',
+            GOOGLE_ANALYTICS_ERR_PLUGIN_VERSION
+        );
     }
 
     /**

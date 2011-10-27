@@ -23,11 +23,13 @@
  *
  */
 
-// TODO: No tests!
-
 // {{{ Constants
 // TODO: Wrap defines in if (check if already defined), or it breaks Jenkins.
-// TODO: Don't set either (unless using *_PLUGIN_DIR somewhere).
+// I shouldn't have to define this, but for testing....
+define(
+    'GOOGLE_ANALYTICS_ERR_PLUGIN_VERSION',
+    '1.3-1.0'
+);
 define(
     'GOOGLE_ANALYTICS_ERR_PLUGIN_DIR',
     dirname(__FILE__)
@@ -38,30 +40,9 @@ define(
 );
 // }}}
 
-/**
- * Add hooks for various events.
- */
-// {{{ Hooks
-add_plugin_hook('install', 'googleanalysticserr_install');
-add_plugin_hook('uninstall', 'googleanalysticserr_uninstall');
-add_plugin_hook('public_theme_footer',
-                'googleanalyticserr_append_code');
-add_plugin_hook('config', 'googleanalyticserr_config');
-add_plugin_hook('config_form', 'googleanalyticserr_config_form');
-// }}}
+require_once GOOGLE_ANALYTICS_ERR_PLUGIN_DIR . '/GoogleAnalyticsPlugin.php';
 
-// TODO: Wrap all hooks in a static class.
-
-/**
- * Install the plugin by setting the options.
- */
-function googleanalysticserr_install()
-{
-  set_option(
-      'googleanalyticserr_version',
-      GOOGLE_ANALYTICS_ERR_PLUGIN_VERSION
-    );
-}
+new GoogleAnalyticsPlugin();
 
 /**
  * Uninstall the plugin by deleting the options.
