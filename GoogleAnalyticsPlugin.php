@@ -23,4 +23,101 @@
  *
  */
 
+/**
+ * This is the hook and filter class for the plugin.
+ **/
+class GoogleAnalyticsPlugin
+{
+
+    /**
+     * This is a list of the hooks this implements.
+     *
+     * @var array of string
+     **/
+    private static $_hooks = array(
+        'install',
+        'uninstall',
+        'public_theme_footer',
+        'config',
+        'config_form'
+    );
+
+    /**
+     * The database.
+     *
+     * @var object
+     **/
+    private $_db;
+
+    public function __construct()
+    {
+        $this->_db = get_db();
+    }
+
+    /**
+     * This adds the necessary hooks and filters.
+     *
+     * @return void
+     * @author Eric Rochester <erochest@virginia.edu>
+     **/
+    public function addHooksAndFilters()
+    {
+        foreach (self::$_hooks as $hookName) {
+            $fnName = Inflector::variablize($hookName);
+            add_plugin_hook($hookName, array($this, $fnName));
+        }
+        // No filters....
+    }
+
+    /**
+     * This installs the plugin by setting the version option.
+     *
+     * @return void
+     * @author Eric Rochester <erochest@virginia.edu>
+     **/
+    public function install()
+    {
+    }
+
+    /**
+     * This uninstalls the plugin by removing all options.
+     *
+     * @return void
+     * @author Eric Rochester <erochest@virginia.edu>
+     **/
+    public function uninstall()
+    {
+    }
+
+    /**
+     * This processes the configuration information from the form.
+     *
+     * @return void
+     * @author Eric Rochester <erochest@virginia.edu>
+     **/
+    public function config()
+    {
+    }
+
+    /**
+     * This shows the plugin configuration form.
+     *
+     * @return void
+     * @author Eric Rochester <erochest@virginia.edu>
+     **/
+    public function configForm()
+    {
+    }
+
+    /**
+     * This adds the Google Analytics code to the footer of the page, if it's 
+     * set.
+     *
+     * @return void
+     * @author Eric Rochester <erochest@virginia.edu>
+     **/
+    public function publicThemeFooter()
+    {
+    }
+}
 
