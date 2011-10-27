@@ -91,6 +91,8 @@ class GoogleAnalyticsPlugin
      **/
     public function uninstall()
     {
+        delete_option('googleanalyticserr_version');
+        delete_option(GOOGLE_ANALYTICS_ACCOUNT_OPTION);
     }
 
     /**

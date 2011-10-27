@@ -45,16 +45,6 @@ require_once GOOGLE_ANALYTICS_ERR_PLUGIN_DIR . '/GoogleAnalyticsPlugin.php';
 new GoogleAnalyticsPlugin();
 
 /**
- * Uninstall the plugin by deleting the options.
- */
-function googleanalysticserr_uninstall()
-{
-  delete_option('googleanalyticserr_version');
-  delete_option(GOOGLE_ANALYTICS_ACCOUNT_OPTION);
-  
-}
-
-/**
  * Save data from the the plugin configuration form.
  */
 function googleanalyticserr_config()
