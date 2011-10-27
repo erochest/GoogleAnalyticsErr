@@ -19,13 +19,11 @@
  * @copyright 2011
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
  * @version 0.1
- * @link http://www.ericrochester.com/
+ * @link https://github.com/erochest/GoogleAnalyticsErr
  *
  */
 
 // TODO: No tests!
-
-// TODO: @link should be to GH.
 
 // {{{ Constants
 // TODO: Wrap defines in if (check if already defined), or it breaks Jenkins.
