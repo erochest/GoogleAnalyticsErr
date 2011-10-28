@@ -52,6 +52,7 @@ class GoogleAnalyticsPlugin
     public function __construct()
     {
         $this->_db = get_db();
+        self::addHooksAndFilters();
     }
 
     /**
@@ -62,9 +63,10 @@ class GoogleAnalyticsPlugin
      **/
     public function addHooksAndFilters()
     {
+        $broker = get_plugin_broker();
         foreach (self::$_hooks as $hookName) {
             $fnName = Inflector::variablize($hookName);
-            add_plugin_hook($hookName, array($this, $fnName));
+            $broker->addHook($hookName, array($this, $fnName), 'GoogleAnalytics');
         }
         // No filters....
     }

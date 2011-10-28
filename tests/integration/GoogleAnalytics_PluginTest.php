@@ -1,9 +1,7 @@
 <?php
 
 require_once '../GoogleAnalyticsPlugin.php';
-require_once '../plugin.php';
-require_once HELPER_DIR . '/Functions.php';
-require_once HELPER_DIR . '/StringFunctions.php';
+require_once HELPERS;
 
 /**
  * Since this plugin is really a bunch of hooks with little functionality, this does all the testing.
@@ -102,8 +100,9 @@ class GoogleAnalytics_Test_AppTestCase extends Omeka_Test_AppTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->_setUpPlugin();
-        $this->db = get_db();
+        $pluginHelper = new Omeka_Test_Helper_Plugin;
+        $pluginHelper->setUp('GoogleAnalytics');
+        $this->_plugin = new GoogleAnalyticsPlugin;
         $this->_checkInstall();
     }
 
