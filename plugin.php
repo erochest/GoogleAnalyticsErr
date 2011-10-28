@@ -24,7 +24,6 @@
  */
 
 // {{{ Constants
-// TODO: Wrap defines in if (check if already defined), or it breaks Jenkins.
 // I shouldn't have to define this, but for testing....
 if (!defined('GOOGLE_ANALYTICS_ERR_PLUGIN_VERSION')) {
     define(

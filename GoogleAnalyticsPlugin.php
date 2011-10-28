@@ -131,8 +131,6 @@ class GoogleAnalyticsPlugin
         );
         echo '</div>';
 
-        // TODO: Use HEREDOC or partial form for this.
-
         // Now for some instructions. We're user friendly!
         echo '<p>To find your Google Analytics Account ID, follow these steps:</p>';
         echo '<ol style="list-style: decimal inside;">';
