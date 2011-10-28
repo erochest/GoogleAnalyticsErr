@@ -3,6 +3,7 @@
 require_once '../GoogleAnalyticsPlugin.php';
 require_once '../plugin.php';
 require_once HELPER_DIR . '/Functions.php';
+require_once HELPER_DIR . '/StringFunctions.php';
 
 /**
  * Since this plugin is really a bunch of hooks with little functionality, this does all the testing.
@@ -185,16 +186,20 @@ class GoogleAnalytics_Test_AppTestCase extends Omeka_Test_AppTestCase
      **/
     public function testAppendCode()
     {
-        $this->request
-             ->setMethod('POST')
-             ->setPost(array(
-                 GOOGLE_ANALYTICS_ACCOUNT_OPTION => 'TestCode',
-                 'install_plugin'                => 'Save Changes'
-             ));
-        $this->dispatch('admin/plugins/config?name=GoogleAnalytics');
-        $this->dispatch('/');
+        $_POST[GOOGLE_ANALYTICS_ACCOUNT_OPTION] = 'TestCode';
+        $this->_plugin->config();
 
+        /*
+        $this->dispatch('/');
         $this->assertQueryContentRegex('script', '/var accountId = [\'"]TestCode[\'"];/');
+         */
+
+        ob_start();
+        $this->_plugin->publicThemeFooter();
+        $text = ob_get_contents();
+        ob_end_clean();
+
+        $this->assertEquals(1, preg_match('/var accountId = [\'"]TestCode[\'"];/', $text));
     }
 }
 

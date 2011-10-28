@@ -152,6 +152,15 @@ class GoogleAnalyticsPlugin
      **/
     public function publicThemeFooter()
     {
+        $accountId = get_option(GOOGLE_ANALYTICS_ACCOUNT_OPTION);    
+        if (empty($accountId)) {
+            return;
+        }
+        $js = file_get_contents(dirname(__FILE__) . '/snippet.js');
+        echo '<script type="text/javascript">' . "\n";
+        echo 'var accountId = ' . js_escape($accountId) . ';' . "\n";
+        echo $js;
+        echo '</script>' . "\n";
     }
 }
 
