@@ -132,15 +132,17 @@ class GoogleAnalyticsPlugin
         echo '</div>';
 
         // Now for some instructions. We're user friendly!
-        echo '<p>To find your Google Analytics Account ID, follow these steps:</p>';
-        echo '<ol style="list-style: decimal inside;">';
-        echo '<li>Create or log into a ';
-        echo '<a href="https://www.google.com/analytics/" target="_blank">';
-        echo 'Google Analytics</a> account;</li>';
-        echo '<li> Add a &quot;Website Profile&quot; for this Omeka.net website; </li>';
-        echo '<li>Copy the value for Account ID found next to the site URL (starts with &quot;UA-&quot;);</li>';
-        echo '<li>Paste it into the text field above and Save Changes.</li>';
-        echo '</ol>';
+        echo <<<EOF
+<p>To find your Google Analytics Account ID, follow these steps:</p>
+<ol style="list-style: decimal inside;">
+<li>Create or log into a 
+<a href="https://www.google.com/analytics/" target="_blank">
+Google Analytics</a> account;</li>
+<li> Add a &quot;Website Profile&quot; for this Omeka.net website; </li>
+<li>Copy the value for Account ID found next to the site URL (starts with &quot;UA-&quot;);</li>
+<li>Paste it into the text field above and Save Changes.</li>
+</ol>
+EOF;
     }
 
     /**
@@ -156,11 +158,14 @@ class GoogleAnalyticsPlugin
         if (empty($accountId)) {
             return;
         }
+        $jsAccountId = js_escape($accountId);
         $js = file_get_contents(dirname(__FILE__) . '/snippet.js');
-        echo '<script type="text/javascript">' . "\n";
-        echo 'var accountId = ' . js_escape($accountId) . ';' . "\n";
-        echo $js;
-        echo '</script>' . "\n";
+        echo <<<EOF
+<script type="text/javascript">
+var accountId = $jsAccountId;
+$js;
+</script>
+EOF;
     }
 }
 
