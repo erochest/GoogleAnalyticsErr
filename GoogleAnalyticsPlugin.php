@@ -134,7 +134,7 @@ class GoogleAnalyticsPlugin
         // Now for some instructions. We're user friendly!
         echo '<p>To find your Google Analytics Account ID, follow these steps:</p>';
         echo '<ol style="list-style: decimal inside;">';
-        echo '<li>Create or log into a';
+        echo '<li>Create or log into a ';
         echo '<a href="https://www.google.com/analytics/" target="_blank">';
         echo 'Google Analytics</a> account;</li>';
         echo '<li> Add a &quot;Website Profile&quot; for this Omeka.net website; </li>';
