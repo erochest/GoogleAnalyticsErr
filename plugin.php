@@ -44,6 +44,3 @@ require_once GOOGLE_ANALYTICS_ERR_PLUGIN_DIR . '/GoogleAnalyticsPlugin.php';
 
 new GoogleAnalyticsPlugin();
 
-// TODO: Remove closer (XSS).
-?>
-
