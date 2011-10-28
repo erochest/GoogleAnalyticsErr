@@ -26,18 +26,24 @@
 // {{{ Constants
 // TODO: Wrap defines in if (check if already defined), or it breaks Jenkins.
 // I shouldn't have to define this, but for testing....
-define(
-    'GOOGLE_ANALYTICS_ERR_PLUGIN_VERSION',
-    '1.3-1.0'
-);
-define(
-    'GOOGLE_ANALYTICS_ERR_PLUGIN_DIR',
-    dirname(__FILE__)
-);
-define(
-    'GOOGLE_ANALYTICS_ACCOUNT_OPTION',
-    'googleanalytics_account_id'
-);
+if (!defined('GOOGLE_ANALYTICS_ERR_PLUGIN_VERSION')) {
+    define(
+        'GOOGLE_ANALYTICS_ERR_PLUGIN_VERSION',
+        '1.3-1.0'
+    );
+}
+if (!defined('GOOGLE_ANALYTICS_ERR_PLUGIN_DIR')) {
+    define(
+        'GOOGLE_ANALYTICS_ERR_PLUGIN_DIR',
+        dirname(__FILE__)
+    );
+}
+if (!defined('GOOGLE_ANALYTICS_ACCOUNT_OPTION')) {
+    define(
+        'GOOGLE_ANALYTICS_ACCOUNT_OPTION',
+        'googleanalytics_account_id'
+    );
+}
 // }}}
 
 require_once GOOGLE_ANALYTICS_ERR_PLUGIN_DIR . '/GoogleAnalyticsPlugin.php';
