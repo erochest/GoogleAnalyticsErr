@@ -45,17 +45,6 @@ require_once GOOGLE_ANALYTICS_ERR_PLUGIN_DIR . '/GoogleAnalyticsPlugin.php';
 new GoogleAnalyticsPlugin();
 
 /**
- * Save data from the the plugin configuration form.
- */
-function googleanalyticserr_config()
-{
-   set_option(
-      GOOGLE_ANALYTICS_ACCOUNT_OPTION,
-      trim($_POST[GOOGLE_ANALYTICS_ACCOUNT_OPTION])
-   );
-}
-
-/**
  * Show the plugin configuration form.
  */
 function googleanalyticserr_config_form()

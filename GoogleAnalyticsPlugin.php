@@ -103,6 +103,10 @@ class GoogleAnalyticsPlugin
      **/
     public function config()
     {
+        set_option(
+            GOOGLE_ANALYTICS_ACCOUNT_OPTION,
+            trim($_POST[GOOGLE_ANALYTICS_ACCOUNT_OPTION])
+        );
     }
 
     /**

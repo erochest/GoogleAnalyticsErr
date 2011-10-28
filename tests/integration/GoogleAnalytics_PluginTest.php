@@ -153,15 +153,9 @@ class GoogleAnalytics_Test_AppTestCase extends Omeka_Test_AppTestCase
      **/
     public function testConfig()
     {
-        $this->request
-             ->setMethod('POST')
-             ->setPost(array(
-                 GOOGLE_ANALYTICS_ACCOUNT_OPTION => 'TestCode',
-                 'install_plugin'                => 'Save Changes'
-             ));
-        $this->dispatch('admin/plugins/config?name=GoogleAnalytics');
-
-        $this->assertEqual("TestCode", get_option(GOOGLE_ANALYTICS_ACCOUNT_OPTION));
+        $_POST[GOOGLE_ANALYTICS_ACCOUNT_OPTION] = 'TestCode';
+        $this->_plugin->config();
+        $this->assertEquals("TestCode", get_option(GOOGLE_ANALYTICS_ACCOUNT_OPTION));
     }
 
     /**
