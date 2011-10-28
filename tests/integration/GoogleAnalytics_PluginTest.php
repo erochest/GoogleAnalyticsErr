@@ -2,6 +2,7 @@
 
 require_once '../GoogleAnalyticsPlugin.php';
 require_once '../plugin.php';
+require_once HELPER_DIR . '/Functions.php';
 
 /**
  * Since this plugin is really a bunch of hooks with little functionality, this does all the testing.
@@ -166,9 +167,13 @@ class GoogleAnalytics_Test_AppTestCase extends Omeka_Test_AppTestCase
      **/
     public function testConfigForm()
     {
-        $this->dispatch('admin/plugins/config?name=GoogleAnalytics');
-        $this->assertQueryContentContains('label', 'Google Analytics Account ID:');
-        $this->assertQueryCount('input#googleanalytics_account_id', 1);
+        ob_start();
+        $this->_plugin->configForm();
+        $text = ob_get_contents();
+        ob_clean();
+
+        $this->assertInternalType('int', strpos($text, 'Google Analytics Account ID:'));
+        $this->assertInternalType('int', strpos($text, 'googleanalytics_account_id'));
     }
 
     /**
